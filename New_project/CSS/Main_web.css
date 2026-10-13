@@ -1,0 +1,96 @@
+*{
+    padding:0;
+    margin:0;
+}
+.Head_menu{
+    background-color: rgb(102, 102, 192);
+    justify-items: center;
+    height: 150px;
+    display:flex;
+    justify-content: space-around;
+}
+.Content_in_head_menu{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 55px;
+}
+.Item_in_content{
+    font-size: 30px;
+    display: flex;
+    padding:10px;
+    height: 50px;
+    padding-top:10px;
+}
+.Item_in_content:hover{
+    background-color: white;
+    color:rgb(51, 211, 51);
+    border-radius: 15px;
+    cursor: pointer;
+    transition-duration: 1.5s;
+}
+.Something_idk{
+    font-size:30px;
+    color:white;
+    margin-top: 55px;
+}
+.Body_web{
+    display:flex;
+    justify-content: center;
+    margin-top: 40px;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+.create_new_link{
+    border:1px solid black;
+    height: 200px;
+    width: 1000px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.name_input{
+    height: 50px;
+    border-radius: 10px;
+    width: 200px;
+    align-items: center;
+    text-align: center;
+}
+.link_input{
+    height: 50px;
+    border-radius: 10px;
+    width: 200px;
+    align-items: center;
+    text-align: center;
+}
+.button_create{
+    height: 50px;
+    width: 100px;
+    background-color: white;
+    border-radius: 10px;
+}
+.button_create:hover{
+    background-color: rgb(69, 216, 69);
+    cursor: pointer;
+    transition-duration: 1s;
+    border:1px solid white;
+}
+.link_form{
+    border: 1px solid black;
+    height: 200px;
+    width: 1000px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+.name_person{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.link_drive{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
