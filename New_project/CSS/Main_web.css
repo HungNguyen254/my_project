@@ -49,6 +49,8 @@
     display:flex;
     justify-content: space-around;
     align-items: center;
+    border-radius: 12px;
+    box-shadow: 2px 2px 5px gray;
 }
 .name_input{
     height: 50px;
@@ -56,12 +58,14 @@
     width: 200px;
     align-items: center;
     text-align: center;
+    box-shadow: 2px 2px 5px gray;
 }
 .link_input{
     height: 50px;
     border-radius: 10px;
     width: 200px;
     align-items: center;
+    box-shadow: 2px 2px 5px gray;
     text-align: center;
 }
 .button_create{
@@ -69,6 +73,7 @@
     width: 100px;
     background-color: white;
     border-radius: 10px;
+    box-shadow: 2px 2px 5px gray;
 }
 .button_create:hover{
     background-color: rgb(69, 216, 69);
@@ -76,13 +81,22 @@
     transition-duration: 1s;
     border:1px solid white;
 }
+.link_list{
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap:30px;
+}
 .link_form{
-    border: 1px solid black;
+    border: 1px solid gray;
     height: 200px;
     width: 1000px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
+    border-radius: 20px;
+    border-left: 30px solid rgb(18, 226, 18);
+    box-shadow: 2px 2px 5px gray;
 }
 .name_person{
     display: flex;
