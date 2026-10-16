@@ -5,9 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đường dẫn link của tôi</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="../CSS/splash.css">
     <link rel="stylesheet" href="../CSS/Main_web.css">
 </head>
 <body>
+    <!-- Màn hình chờ Clove -->
+    <div id="splash" class="splash" role="status" aria-label="Đang tải">
+        <div class="splash_bg"></div>
+        <span class="splash_corner tl"></span>
+        <span class="splash_corner tr"></span>
+        <span class="splash_corner bl"></span>
+        <span class="splash_corner br"></span>
+        <span class="splash_diamonds"></span>
+        <div class="splash_shape"></div>
+        <div class="splash_embers"></div>
+        <div class="splash_center">
+            <div class="splash_logo_slot"></div>
+            <h1 class="splash_title" aria-label="CLOVE"><span>C</span><span>L</span><span>O</span><span>V</span><span>E</span></h1>
+            <p class="splash_sub">Đang mở kho link của bạn…</p>
+            <div class="splash_bar"><i></i></div>
+        </div>
+        <div class="splash_butterflies"></div>
+        <button class="splash_skip" type="button">Bỏ qua</button>
+    </div>
+
     <div class="Head_menu">
         <div class="Content_in_head_menu">
             <div class="Item_in_content">Home</div>
@@ -30,5 +51,6 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="../JS/splash.js"></script>
 <script type="module" src="../JS/Main_web.js"></script>
 </html>

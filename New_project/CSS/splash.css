@@ -1,0 +1,301 @@
+/* =========================================================
+   MÀN HÌNH CHỜ CLOVE  (thêm file này, hoặc dán vào cuối Main_web.css)
+   ========================================================= */
+body.splash-active {
+    overflow: hidden;
+}
+
+.splash {
+    --s-ink: #23242d;
+    --s-violet: #6a3df0;
+    --s-violet-deep: #4a22c4;
+    --s-pink: #ff5fc0;
+    --s-butter: #f6d86b;
+
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: #cdbdf3;
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 0.9s cubic-bezier(0.77, 0, 0.18, 1);
+}
+
+/* Nền chất lỏng tím - hồng giống wallpaper Clove */
+.splash_bg {
+    position: absolute;
+    inset: -20%;
+    background:
+        radial-gradient(40% 35% at 25% 30%, #b99af0 0%, transparent 70%),
+        radial-gradient(45% 40% at 78% 25%, #a9b8f4 0%, transparent 70%),
+        radial-gradient(50% 45% at 65% 80%, #e7b6f0 0%, transparent 70%),
+        radial-gradient(40% 40% at 20% 85%, #9d84ea 0%, transparent 70%),
+        #d9d1f3;
+    filter: blur(24px);
+    animation: bgFlow 9s ease-in-out infinite alternate;
+}
+
+@keyframes bgFlow {
+    from { transform: translate3d(-3%, -2%, 0) rotate(0deg) scale(1); }
+    to   { transform: translate3d(3%, 3%, 0) rotate(8deg) scale(1.12); }
+}
+
+/* Hạt nhiễu nhẹ cho giống ảnh gốc */
+.splash::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.14;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Họa tiết góc kiểu giao diện Valorant */
+.splash_corner {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: var(--s-ink);
+    opacity: 0;
+    animation: popIn 0.4s ease-out 0.3s forwards;
+}
+.splash_corner.tl { top: 40px; left: 40px; width: 36px; height: 36px; }
+.splash_corner.tr { top: 40px; right: 40px; }
+.splash_corner.bl { bottom: 40px; left: 40px; }
+.splash_corner.br { bottom: 40px; right: 40px; }
+
+.splash_diamonds {
+    position: absolute;
+    top: 52px;
+    right: 90px;
+    width: 190px;
+    height: 12px;
+    opacity: 0;
+    background:
+        linear-gradient(135deg, transparent 45%, var(--s-violet) 46% 54%, transparent 55%) 0 0 / 12px 12px,
+        linear-gradient(45deg, transparent 45%, var(--s-violet) 46% 54%, transparent 55%) 0 0 / 12px 12px;
+    animation: popIn 0.5s ease-out 0.5s forwards;
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.4); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* Chữ V đen ở giữa (hình khối nền của Valorant) */
+.splash_shape {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(46vmin, 380px);
+    aspect-ratio: 1 / 1.05;
+    background: var(--s-ink);
+    clip-path: polygon(0 0, 30% 0, 50% 58%, 70% 0, 100% 0, 60% 100%, 40% 100%);
+    transform: translate(-50%, -56%) scale(0.2) rotate(-25deg);
+    opacity: 0;
+    animation: shapeIn 0.9s cubic-bezier(0.2, 0.9, 0.25, 1.1) 0.15s forwards;
+}
+
+@keyframes shapeIn {
+    to { transform: translate(-50%, -56%) scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* Cụm trung tâm */
+.splash_center {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    transform: translateY(6vmin);
+}
+
+.splash_logo {
+    width: min(30vmin, 240px);
+    height: auto;
+    overflow: visible;
+    transform-origin: 50% 60%;
+    opacity: 0;
+    filter: drop-shadow(0 0 22px rgba(255, 95, 192, 0.65));
+    animation:
+        logoIn 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.2) 0.7s forwards,
+        logoFloat 3s ease-in-out 1.6s infinite;
+}
+
+@keyframes logoIn {
+    from { opacity: 0; transform: scale(0.3) translateY(40px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+}
+
+/* Cánh bướm vỗ */
+.wing_l, .wing_r {
+    transform-box: view-box;
+    transform-origin: 50px 45px;
+    animation: flap 0.55s ease-in-out infinite alternate;
+}
+.wing_r { animation-name: flapR; }
+
+@keyframes flap  { from { transform: scaleX(1); } to { transform: scaleX(0.35); } }
+@keyframes flapR { from { transform: scaleX(1); } to { transform: scaleX(0.35); } }
+
+/* Tên CLOVE từng chữ một */
+.splash_title {
+    display: flex;
+    gap: 0.5em;
+    font-size: clamp(28px, 6vmin, 56px);
+    font-weight: 800;
+    color: var(--s-ink);
+    letter-spacing: 0.1em;
+    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+.splash_title span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(60%) skewX(-12deg);
+    animation: letterIn 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards;
+}
+.splash_title span:nth-child(1) { animation-delay: 1.35s; }
+.splash_title span:nth-child(2) { animation-delay: 1.45s; }
+.splash_title span:nth-child(3) { animation-delay: 1.55s; }
+.splash_title span:nth-child(4) { animation-delay: 1.65s; }
+.splash_title span:nth-child(5) { animation-delay: 1.75s; }
+
+@keyframes letterIn {
+    to { opacity: 1; transform: translateY(0) skewX(0); }
+}
+
+.splash_sub {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--s-ink);
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 1.9s forwards;
+}
+@keyframes fadeIn { to { opacity: 0.8; } }
+
+/* Thanh tiến trình */
+.splash_bar {
+    width: min(280px, 60vw);
+    height: 6px;
+    background: rgba(35, 36, 45, 0.18);
+    border-radius: 99px;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeInFull 0.4s ease-out 1.9s forwards;
+}
+.splash_bar i {
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform-origin: left;
+    transform: scaleX(0);
+    background: linear-gradient(90deg, var(--s-violet), var(--s-pink), var(--s-butter));
+    border-radius: inherit;
+    animation: barFill 1.9s cubic-bezier(0.45, 0, 0.2, 1) 2s forwards;
+}
+@keyframes fadeInFull { to { opacity: 1; } }
+@keyframes barFill { to { transform: scaleX(1); } }
+
+/* Bướm nhỏ bay ra (tạo bằng JS) */
+.splash_butterflies,
+.splash_embers {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.mini_butterfly {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--size, 34px);
+    height: auto;
+    overflow: visible;
+    opacity: 0;
+    filter: drop-shadow(0 0 8px rgba(106, 61, 240, 0.45));
+}
+.mini_butterfly .wing_l,
+.mini_butterfly .wing_r {
+    animation-duration: var(--flap, 0.3s);
+}
+
+/* Tàn lửa tím - hồng bay lên (ngọn lửa của Clove) */
+.ember {
+    position: absolute;
+    bottom: -20px;
+    left: var(--x, 50%);
+    width: var(--d, 10px);
+    height: var(--d, 10px);
+    border-radius: 60% 40% 60% 40%;
+    background: var(--c, #ff5fc0);
+    opacity: 0;
+    filter: blur(0.5px);
+    animation: emberRise var(--t, 3s) ease-out var(--delay, 0s) infinite;
+}
+@keyframes emberRise {
+    0%   { opacity: 0; transform: translate(0, 0) rotate(0deg) scale(1); }
+    15%  { opacity: 0.9; }
+    100% { opacity: 0; transform: translate(var(--drift, 30px), -75vh) rotate(180deg) scale(0.2); }
+}
+
+/* Nút bỏ qua */
+.splash_skip {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    z-index: 3;
+    padding: 10px 20px;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    background: var(--s-ink);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInFull 0.4s ease-out 0.8s forwards;
+    transition: background-color 0.2s, color 0.2s;
+}
+.splash_skip:hover { background: var(--s-butter); color: var(--s-ink); }
+.splash_skip:focus-visible { outline: 3px solid var(--s-violet); outline-offset: 3px; }
+
+/* Thoát: màn hình quét lên trên để lộ trang web */
+.splash.is-leaving {
+    clip-path: inset(0 0 100% 0);
+    pointer-events: none;
+}
+
+@media (max-width: 720px) {
+    .splash_corner.tl { top: 20px; left: 20px; width: 28px; height: 28px; }
+    .splash_corner.tr { top: 20px; right: 20px; }
+    .splash_corner.bl { bottom: 20px; left: 20px; }
+    .splash_corner.br { display: none; }
+    .splash_diamonds { display: none; }
+    .splash_skip { right: 20px; bottom: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .splash_bg,
+    .splash_logo,
+    .wing_l, .wing_r,
+    .ember { animation: none !important; }
+    .splash { transition-duration: 0.3s; }
+    .splash_logo,
+    .splash_title span,
+    .splash_sub,
+    .splash_bar,
+    .splash_shape,
+    .splash_skip { opacity: 1; transform: none; }
+    .splash_shape { transform: translate(-50%, -56%); }
+    .splash_bar i { transform: scaleX(1); animation: none; }
+}
